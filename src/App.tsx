@@ -5,8 +5,13 @@ import Photo from "./components/photo";
 import { connect } from "react-redux";
 import { Mode } from "./types";
 
+
+function isPhoto(mode: Mode){
+  return mode === Mode.Photo;
+}
+
 function PageTitle(props: any) {
-  if (props.mode === Mode.Photo) {
+  if (isPhoto(props.mode)) {
     return <Title title="Scan your ID"
                   description="Take a picture. It may take time to validate your personal information"/>
 
@@ -16,13 +21,12 @@ function PageTitle(props: any) {
   }
 }
 function PhotoContent(props: any) {
-  if (props.mode === Mode.Photo) {
+  if (isPhoto(props.mode)) {
     return <Photo/>
   } else {
     return <Scanner/>
   }
 }
-
 
 const mapStateToProps = (state: any) => {
   return {
@@ -39,8 +43,8 @@ type Props = {
 class App extends React.Component<Props>{
   render() {
     return (
-      <div className={this.props.mode === Mode.Photo ? 'photo': 'camera'}>
-        {this.props.mode === Mode.Photo && <header>BankClient</header>}
+      <div className={isPhoto(this.props.mode) ? 'photo': 'camera'}>
+        {isPhoto(this.props.mode) ? <header>BankClient</header> : <div className=''></div>}
         <PageTitle mode={this.props.mode}/>
         <PhotoContent mode={this.props.mode}/>
       </div>

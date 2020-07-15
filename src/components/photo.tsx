@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../types.js";
 import { Dispatch } from "redux";
 import { changeToCameraMode } from "../store/actions";
-
+import styles from "./photo.module.css"
 type PhotoProps = {
   currentPhoto: string,
   setCameraMode: () => void
@@ -21,8 +21,8 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 function renderPhoto(props: PhotoProps){
   if(!props.currentPhoto) {
-    return <div>
-      <button onClick={props.setCameraMode}>Take picture</button>
+    return <div className={styles.noPhoto}>
+      <button className="primary-button" onClick={props.setCameraMode}>Take picture</button>
     </div>
   }
 }
