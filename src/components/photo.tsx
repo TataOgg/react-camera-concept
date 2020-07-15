@@ -30,7 +30,7 @@ class Photo extends React.Component<PhotoProps> {
 
   render() {
     return (
-      <div className="photo">
+      <div className="photo-menu">
         {renderPhoto(this.props)}
       </div>
       );

@@ -1,0 +1,14 @@
+.title{
+    display: block;
+    position: relative;
+}
+
+.title h1{
+    margin: 15px;
+    font-size: 21px;
+    padding: 0;
+}
+
+.title p{
+    font-size: 16px;
+}
