@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
 import Title from './components/title'
 import Scanner from "./components/scanner";
 import Photo from "./components/photo";
-import { AppState, Mode } from "./types";
+import { connect } from "react-redux";
+import { Mode } from "./types";
 
 function PageTitle(props: any) {
   if (props.mode === Mode.Photo) {
@@ -23,20 +23,29 @@ function PhotoContent(props: any) {
   }
 }
 
-class App extends React.Component{
-  state: AppState = {
-    mode: Mode.Photo,
-    currentPhoto: null
+
+const mapStateToProps = (state: any) => {
+  return {
+    mode: state.ModeReducer.mode,
+    currentPhoto: state.PhotoReducer.currentPhoto
   }
+};
+
+type Props = {
+  mode: Mode,
+  currentPhoto: String
+}
+
+class App extends React.Component<Props>{
   render() {
     return (
       <div className="App">
-        {this.state.mode === Mode.Scan && <header>BankClient</header>}
-        <PageTitle mode={this.state.mode}/>
-        <PhotoContent mode={this.state.mode}/>
+        {this.props.mode === Mode.Photo && <header>BankClient</header>}
+        <PageTitle mode={this.props.mode}/>
+        <PhotoContent mode={this.props.mode}/>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps)(App)

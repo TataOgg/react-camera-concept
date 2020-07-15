@@ -1,4 +1,7 @@
 import React from 'react';
+import { Dispatch } from "redux";
+import { changeToPhotoMode } from "../store/actions";
+import { connect } from "react-redux";
 
 enum ScannerStatus {
   Pending = "pending",
@@ -6,25 +9,29 @@ enum ScannerStatus {
   Error = "error"
 }
 
-type ScannerState = {
-  currentStatus: ScannerStatus
+type ScannerProps = {
+  setPhotoMode: () => void
 };
 
-function goBackToScan () {
-
+type ScannerState = {
+    currentStatus: ScannerStatus
 }
 
-class Scanner extends React.Component {
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setPhotoMode: () => dispatch(changeToPhotoMode())
+})
+
+class Scanner extends React.Component<ScannerProps, ScannerState> {
   state: ScannerState = {
     currentStatus: ScannerStatus.Pending
   }
   render() {
     return (
       <div className={`scanner ${this.state.currentStatus}` }>
-        <button onClick={goBackToScan}>Cancel</button>
+        <button onClick={this.props.setPhotoMode}>Cancel</button>
       </div>
       );
   }
 }
 
-export default Scanner;
+export default connect(null, mapDispatchToProps)(Scanner);

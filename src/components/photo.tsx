@@ -1,16 +1,40 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { AppState } from "../types.js";
+import { Dispatch } from "redux";
+import { changeToCameraMode } from "../store/actions";
 
-type PhotoStatus = {
+type PhotoProps = {
+  currentPhoto: string,
+  setCameraMode: () => void
 };
 
-class Photo extends React.Component<PhotoStatus> {
+
+const mapStateToProps = (state: AppState) => {
+  return {
+    currentPhoto: state.currentPhoto
+  }
+};
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  setCameraMode: () => dispatch(changeToCameraMode())
+})
+
+function renderPhoto(props: PhotoProps){
+  if(!props.currentPhoto) {
+    return <div>
+      <button onClick={props.setCameraMode}>Take picture</button>
+    </div>
+  }
+}
+class Photo extends React.Component<PhotoProps> {
+
   render() {
     return (
       <div className="photo">
-        WTF
+        {renderPhoto(this.props)}
       </div>
       );
   }
 }
 
-export default Photo;
+export default connect(mapStateToProps, mapDispatchToProps)(Photo);
