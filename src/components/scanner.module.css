@@ -1,3 +1,39 @@
 .scanner {
     z-index: 1;
+    text-align: center;
+}
+
+.cancel {
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    size: 16px;
+    border-bottom: 48px;
+    border-top: 126px;
+    display: block;
+}
+
+.cameraImage {
+    display: inline-block;
+    position: relative;
+    height: 180px;
+    width: 290px;
+    background-color: #2f0079;
+    border-radius: 18px;
+    box-sizing: border-box;
+}
+
+.pending {
+}
+
+.taken {
+    background-color: #69CC8B;
+    border: 2px #69CC8B;
+}
+
+.error {
+    background-color: #C00000;
+    border: 2px #C00000;
 }

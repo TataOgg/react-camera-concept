@@ -3,7 +3,7 @@ import Title from './components/title'
 import Scanner from "./components/scanner";
 import Photo from "./components/photo";
 import { connect } from "react-redux";
-import { Mode } from "./types";
+import { CurrentPhoto, Mode } from "./types";
 
 
 function isPhoto(mode: Mode){
@@ -37,14 +37,14 @@ const mapStateToProps = (state: any) => {
 
 type Props = {
   mode: Mode,
-  currentPhoto: String
+  currentPhoto: CurrentPhoto
 }
 
 class App extends React.Component<Props>{
   render() {
     return (
       <div className={isPhoto(this.props.mode) ? 'photo': 'camera'}>
-        {isPhoto(this.props.mode) ? <header>BankClient</header> : <div className=''></div>}
+        {isPhoto(this.props.mode) && <header>BankClient</header>}
         <PageTitle mode={this.props.mode}/>
         <PhotoContent mode={this.props.mode}/>
       </div>

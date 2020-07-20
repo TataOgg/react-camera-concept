@@ -1,10 +1,21 @@
-import { AppStateAction, SetCurrentPhoto } from './actions.js'
-import { AppState, CAMERA_MODE, Mode, PHOTO_MODE } from "../types";
+import { AppStateAction, PhotoAction } from './actions.js'
+import {
+  AppState,
+  CAMERA_MODE,
+  Mode,
+  NEW_PHOTO,
+  NEW_PHOTO_STATUS,
+  PHOTO_MODE,
+  PhotoStatus
+} from "../types";
 
 
 const initialAppState:AppState = {
   mode: Mode.Photo,
-  currentPhoto: null
+  currentPhoto: {
+    photo: null,
+    status: PhotoStatus.Pending
+  }
 }
 export function ModeReducer(state=initialAppState, action: AppStateAction) {
   switch (action.type) {
@@ -13,10 +24,29 @@ export function ModeReducer(state=initialAppState, action: AppStateAction) {
     case PHOTO_MODE:
       return {...state, mode: Mode.Photo}
     default:
-      return {...state}
+      return state
   }
 }
 
-export function PhotoReducer(state: AppState, action: SetCurrentPhoto) {
-  return {...state, mode: Mode.Photo, currentPhoto: action.newPhoto};
+export function PhotoReducer(state=initialAppState, action: PhotoAction) {
+  switch (action.type) {
+    case NEW_PHOTO:
+      return {
+        ...state,
+        currentPhoto:
+          {
+            photo: action.newPhoto, status: PhotoStatus.Pending
+          }
+      };
+    case NEW_PHOTO_STATUS:
+      return {
+        ...state,
+        currentPhoto: {
+          ...state.currentPhoto,
+          status: action.newPhotoStatus
+        }
+      }
+    default:
+      return state;
+  }
 }
