@@ -44,9 +44,11 @@ class App extends React.Component<Props>{
   render() {
     return (
       <div className={isPhoto(this.props.mode) ? 'photo': 'camera'}>
-        {isPhoto(this.props.mode) && <header>BankClient</header>}
-        <PageTitle mode={this.props.mode}/>
-        <PhotoContent mode={this.props.mode}/>
+        {isPhoto(this.props.mode) && <header><p className="logo">BankClient</p></header>}
+        <div className={'content'}>
+          <PageTitle mode={this.props.mode}/>
+          <PhotoContent mode={this.props.mode} />
+        </div>
       </div>
     );
   }

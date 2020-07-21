@@ -1,16 +1,15 @@
 .title{
-    display: block;
-    position: relative;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .title h1{
-    padding: 15px;
     font-size: 21px;
-    margin: 0;
+    margin-bottom: 20px;
 }
 
 .title p{
     font-size: 16px;
-    padding: 0 20px;
-    margin: 0;
+    margin-bottom: 20px;
 }

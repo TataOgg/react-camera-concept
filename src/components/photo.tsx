@@ -4,6 +4,7 @@ import { CurrentPhoto } from "../types.js";
 import { Dispatch } from "redux";
 import { changeToCameraMode } from "../store/actions";
 import styles from "./photo.module.css"
+
 type PhotoProps = {
   currentPhoto: CurrentPhoto,
   setCameraMode: () => void
@@ -21,19 +22,18 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 
 function renderPhoto(props: PhotoProps){
   if(!props.currentPhoto.photo) {
-    return <div className={styles.empty}>
+    return (
+      <div className={styles.photoMenu}>
+      <img className={styles.empty} src="/id-bg.svg" alt="empty"/>
       <button className="primary-button" onClick={props.setCameraMode}>Take picture</button>
-    </div>
+      </div>
+    )
   }
 }
 class Photo extends React.Component<PhotoProps> {
 
   render() {
-    return (
-      <div className="photo-menu">
-        {renderPhoto(this.props)}
-      </div>
-      );
+    return renderPhoto(this.props);
   }
 }
 

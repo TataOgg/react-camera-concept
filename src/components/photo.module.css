@@ -1,14 +1,11 @@
 .empty{
-    position: relative;
-    display: block;
-    background-image: url("/id-bg.svg");
     box-shadow: 0 10px 20px -6px rgba(0,0,0,0.15);
-
+    padding: 18px;
+    border-radius: 12px;
 }
 
-.photo-menu{
-    position: relative;
-    display: block;
+.photoMenu{
     width: 260px;
     height: 160px;
+    position: relative;
 }

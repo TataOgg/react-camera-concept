@@ -1,50 +1,68 @@
 header{
-  font-weight: bold;
-  font-style: italic;
-  color: #2f0079;
-  font-size: 21px;
-  border-bottom: 1px solid rgba(47,0,121, 0.1);
-  padding: 20px;
-  text-align: left;
+    padding: 20px;
+    border-bottom: 1px solid rgba(47,0,121, 0.1);
+}
+header .logo{
+
+    font-weight: bold;
+    font-style: italic;
+    color: #2f0079;
+    font-size: 21px;
+    margin: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-body {
-  width: 375px;
-  height: 667px;
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  text-align: center;
-
+#root {
+    width: 100%;
+    height: 100vh;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
 .photo {
-  color: black;
+    width: 100%;
+}
+
+.photo .content{
+    margin-top: 40px;
 }
 
 .camera {
-  padding-top: 60px;
-  color: white;
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)),
-    url("/camera-background.png")
-    no-repeat center center;
-  background-size: 375px 667px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+    url("/camera-background.png");
+    background-size: contain;
+    box-sizing: border-box;
+    padding-top: 110px;
 }
 
 .black-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  background: rgba(0, 0, 0, 0.5);
-  width: 375px;
-  height: 667px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    width: 375px;
+    height: 667px;
 }
 
 .primary-button {
@@ -57,5 +75,10 @@ code {
     color: white;
     font-weight: bold;
     background-color: #2f0079;
-
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
