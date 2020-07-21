@@ -1,7 +1,8 @@
 import {
   CAMERA_MODE,
   CURRENT_PHOTO,
-  NEW_PHOTO, NEW_PHOTO_STATUS,
+  NEW_PHOTO,
+  NEW_PHOTO_STATUS,
   PHOTO_MODE,
   PhotoStatus
 } from "../types";
@@ -9,6 +10,7 @@ import {
 export interface ChangeToPhotoMode {
   type: PHOTO_MODE
 }
+
 export interface ChangeToCameraMode {
   type: CAMERA_MODE
 }
@@ -27,8 +29,12 @@ export interface GetCurrentPhoto {
   type: CURRENT_PHOTO,
 }
 
-export type AppStateAction = ChangeToCameraMode | ChangeToPhotoMode;
-export type PhotoAction = GetCurrentPhoto | SetCurrentPhoto | SetCurrentPhotoStatus;
+export type AppStateAction = ChangeToCameraMode | ChangeToPhotoMode
+export type PhotoAction =
+  GetCurrentPhoto
+  | SetCurrentPhoto
+  | SetCurrentPhotoStatus
+
 export function changeToCameraMode(): ChangeToCameraMode {
   return {
     type: CAMERA_MODE
@@ -42,14 +48,14 @@ export function changeToPhotoMode(): ChangeToPhotoMode {
   }
 }
 
-export function setCurrentPhoto(newPhoto: ImageBitmap): SetCurrentPhoto{
+export function setCurrentPhoto(newPhoto: ImageBitmap): SetCurrentPhoto {
   return {
     type: NEW_PHOTO,
     newPhoto: newPhoto
   }
 }
 
-export function setCurrentPhotoStatus(photoStatus: PhotoStatus): SetCurrentPhotoStatus{
+export function setCurrentPhotoStatus(photoStatus: PhotoStatus): SetCurrentPhotoStatus {
   return {
     type: NEW_PHOTO_STATUS,
     newPhotoStatus: photoStatus
@@ -57,7 +63,7 @@ export function setCurrentPhotoStatus(photoStatus: PhotoStatus): SetCurrentPhoto
 }
 
 
-export function getCurrentPhoto(newPhoto: string): GetCurrentPhoto{
+export function getCurrentPhoto(newPhoto: string): GetCurrentPhoto {
   return {
     type: CURRENT_PHOTO
   }

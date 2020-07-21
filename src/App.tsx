@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { CurrentPhoto, Mode } from "./types";
 
 
-function isPhoto(mode: Mode){
+function isPhoto(mode: Mode) {
   return mode === Mode.Photo;
 }
 
@@ -20,6 +20,7 @@ function PageTitle(props: any) {
                   description="Fit your ID card inside the frame. The picture will be taken automatically"/>
   }
 }
+
 function PhotoContent(props: any) {
   if (isPhoto(props.mode)) {
     return <Photo/>
@@ -40,14 +41,15 @@ type Props = {
   currentPhoto: CurrentPhoto
 }
 
-class App extends React.Component<Props>{
+class App extends React.Component<Props> {
   render() {
     return (
-      <div className={isPhoto(this.props.mode) ? 'photo': 'camera'}>
-        {isPhoto(this.props.mode) && <header><p className="logo">BankClient</p></header>}
+      <div className={isPhoto(this.props.mode) ? 'photo' : 'camera'}>
+        {isPhoto(this.props.mode) &&
+        <header><p className="logo">BankClient</p></header>}
         <div className={'content'}>
           <PageTitle mode={this.props.mode}/>
-          <PhotoContent mode={this.props.mode} />
+          <PhotoContent mode={this.props.mode}/>
         </div>
       </div>
     );

@@ -10,14 +10,15 @@ import {
 } from "../types";
 
 
-const initialAppState:AppState = {
+const initialAppState: AppState = {
   mode: Mode.Photo,
   currentPhoto: {
     photo: null,
     status: PhotoStatus.Pending
   }
 }
-export function ModeReducer(state=initialAppState, action: AppStateAction) {
+
+export function ModeReducer(state = initialAppState, action: AppStateAction) {
   switch (action.type) {
     case CAMERA_MODE:
       return {...state, mode: Mode.Scan}
@@ -28,7 +29,7 @@ export function ModeReducer(state=initialAppState, action: AppStateAction) {
   }
 }
 
-export function PhotoReducer(state=initialAppState, action: PhotoAction) {
+export function PhotoReducer(state = initialAppState, action: PhotoAction) {
   switch (action.type) {
     case NEW_PHOTO:
       return {
@@ -37,7 +38,7 @@ export function PhotoReducer(state=initialAppState, action: PhotoAction) {
           {
             photo: action.newPhoto, status: PhotoStatus.Pending
           }
-      };
+      }
     case NEW_PHOTO_STATUS:
       return {
         currentPhoto: {
@@ -46,6 +47,6 @@ export function PhotoReducer(state=initialAppState, action: PhotoAction) {
         }
       }
     default:
-      return state;
+      return state
   }
 }

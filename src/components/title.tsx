@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './title.module.css'
+
 type TitleProps = {
   title: string, description: string
 };
@@ -15,8 +16,8 @@ class Title extends React.Component<TitleProps> {
           {this.props.description}
         </p>
       </div>
-      );
+    );
   }
 }
 
-export default Title;
+export default Title

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import {faCheck, faTimes} from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { CurrentPhoto, PhotoStatus } from "../types";
@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   setCameraMode: () => dispatch(changeToCameraMode())
 })
 
-function setPill(status: PhotoStatus){
+function setPill(status: PhotoStatus) {
   switch (status) {
     case PhotoStatus.Taken:
       return <span className={`${styles.pill} ${styles.accepted}`}>
@@ -37,39 +37,49 @@ function setPill(status: PhotoStatus){
       </span>
   }
 }
-function renderPhoto(props: PhotoProps, state: any){
 
-  if(!props.currentPhoto.photo) {
+function renderPhoto(props: PhotoProps, state: any) {
+
+  if (!props.currentPhoto.photo) {
     return (
       <div className={styles.photoMenu}>
         <img className={styles.empty} src="/id-bg.svg" alt="empty"/>
-        <button className="primary-button" onClick={props.setCameraMode}>Take picture</button>
+        <button className="primary-button" onClick={props.setCameraMode}>Take
+          picture
+        </button>
       </div>
     )
   } else {
     return (
       <div className={styles.photoMenu}>
-        <canvas className={styles[props.currentPhoto.status]} ref={state.canvasDomRef}/>
+        <canvas className={styles[props.currentPhoto.status]}
+                ref={state.canvasDomRef}/>
         {
-          props.currentPhoto.status === PhotoStatus.Error && <button className="primary-button" onClick={props.setCameraMode}>Retake picture</button>
+          props.currentPhoto.status === PhotoStatus.Error &&
+          <button className="primary-button"
+                  onClick={props.setCameraMode}>Retake picture</button>
         }
         {setPill(props.currentPhoto.status)}
       </div>
     )
   }
 }
+
 class Photo extends React.Component<PhotoProps> {
   state: any = {
     canvasDomRef: React.createRef()
   }
+
   componentDidMount() {
     if (this.state.canvasDomRef.current) {
-      this.state.canvasDomRef.current.getContext('2d').drawImage(this.props.currentPhoto.photo, 0, 0)
+      this.state.canvasDomRef.current.getContext('2d')
+        .drawImage(this.props.currentPhoto.photo, 0, 0)
     }
   }
+
   render() {
-    return renderPhoto(this.props, this.state);
+    return renderPhoto(this.props, this.state)
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Photo);
+export default connect(mapStateToProps, mapDispatchToProps)(Photo)
