@@ -20,20 +20,34 @@
     position: relative;
     height: 180px;
     width: 290px;
-    background-color: #2f0079;
     border-radius: 18px;
-    box-sizing: border-box;
 }
 
-.pending {
+.cameraDetails {
+    text-align: center;
+    margin-top: 16px;
 }
 
 .taken {
     background-color: #69CC8B;
-    border: 2px #69CC8B;
+    border: 2px solid #69CC8B;
 }
 
 .error {
     background-color: #C00000;
-    border: 2px #C00000;
+    border: 2px solid #C00000;
+}
+
+.icon {
+    height: 30px;
+    width: 30px;
+    vertical-align: 0;
+}
+
+.cameraDetailsText {
+    display: inline-block;
+    margin: 7px 0 18px 15px;
+    vertical-align: middle;
+    height: 30px;
+    font-size: 16px;
 }

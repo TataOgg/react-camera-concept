@@ -82,3 +82,7 @@ code {
     bottom: 0;
     margin: auto;
 }
+
+.accepted {
+    color: #69CC8B;
+}

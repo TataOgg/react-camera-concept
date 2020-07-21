@@ -20,7 +20,7 @@ export enum Mode {
 
 
 export type CurrentPhoto = {
-  photo: string | null,
+  photo: ImageBitmap | null,
   status: PhotoStatus
 }
 

@@ -40,7 +40,6 @@ export function PhotoReducer(state=initialAppState, action: PhotoAction) {
       };
     case NEW_PHOTO_STATUS:
       return {
-        ...state,
         currentPhoto: {
           ...state.currentPhoto,
           status: action.newPhotoStatus

@@ -4,8 +4,58 @@
     border-radius: 12px;
 }
 
+.taken {
+    border: 2px solid #69CC8B;
+    border-radius: 12px;
+    width: 260px;
+    height: 160px;
+}
+
+.error {
+    border: 2px solid #C00000;
+    border-radius: 12px;
+    width: 260px;
+    height: 160px;
+}
+
 .photoMenu{
     width: 260px;
     height: 160px;
     position: relative;
+}
+
+.pill{
+    text-transform: uppercase;
+    font-weight: bold;
+    position: absolute;
+    bottom: -15px;
+    right: 25px;
+    color: white;
+    border-radius: 4px;
+    height: 30px;
+    padding: 10px;
+}
+
+.pillIcon{
+    height: 30px;
+    width: 30px;
+    vertical-align: 0;
+}
+
+.pillText{
+    height: 30px;
+    display: inline-block;
+    position: relative;
+    margin: 0 9px 8px 9px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.accepted{
+    background-color: #69CC8B;
+}
+
+.rejected{
+    background-color: #C00000;
+
 }

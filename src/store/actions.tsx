@@ -15,7 +15,7 @@ export interface ChangeToCameraMode {
 
 export interface SetCurrentPhoto {
   type: NEW_PHOTO,
-  newPhoto: string
+  newPhoto: ImageBitmap
 }
 
 export interface SetCurrentPhotoStatus {
@@ -42,7 +42,7 @@ export function changeToPhotoMode(): ChangeToPhotoMode {
   }
 }
 
-export function setCurrentPhoto(newPhoto: string): SetCurrentPhoto{
+export function setCurrentPhoto(newPhoto: ImageBitmap): SetCurrentPhoto{
   return {
     type: NEW_PHOTO,
     newPhoto: newPhoto
