@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 class Scanner extends React.Component<ScannerProps> {
   render() {
     return (
-      <div className={styles.scanner}>
+      <div data-testid="scanner" className={styles.scanner}>
         <div
           className={`${styles.cameraImage} ${styles[this.props.currentStatus]}`}>
           <Camera/>

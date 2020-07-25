@@ -149,5 +149,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "jest-canvas-mock": "^2.2.0"
   }
 }

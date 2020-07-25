@@ -1,21 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 import { Provider } from 'react-redux';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { combineReducers, createStore, Reducer } from "redux";
-import { AppState } from "./types.js";
-import { ModeReducer, PhotoReducer } from "./store/reducers";
+import { appStore } from "./store/store";
 
-export const reducers: Reducer = combineReducers({
-  ModeReducer, PhotoReducer
-})
-const appStore = createStore<AppState, any, any, any>(reducers)
-
-ReactDOM.render(
+render(
   <Provider store={appStore}>
     <App/>
   </Provider>,

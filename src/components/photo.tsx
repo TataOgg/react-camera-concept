@@ -42,7 +42,7 @@ function renderPhoto(props: PhotoProps, state: any) {
 
   if (!props.currentPhoto.photo) {
     return (
-      <div className={styles.photoMenu}>
+      <div data-testid="photo" className={styles.photoMenu}>
         <img className={styles.empty} src="/id-bg.svg" alt="empty"/>
         <button className="primary-button" onClick={props.setCameraMode}>Take
           picture
@@ -51,8 +51,8 @@ function renderPhoto(props: PhotoProps, state: any) {
     )
   } else {
     return (
-      <div className={styles.photoMenu}>
-        <canvas className={styles[props.currentPhoto.status]}
+      <div data-testid="photo" className={styles.photoMenu}>
+        <canvas data-testid="photo-canvas" className={styles[props.currentPhoto.status]}
                 ref={state.canvasDomRef}/>
         {
           props.currentPhoto.status === PhotoStatus.Error &&

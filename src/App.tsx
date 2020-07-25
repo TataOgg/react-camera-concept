@@ -44,7 +44,7 @@ type Props = {
 class App extends React.Component<Props> {
   render() {
     return (
-      <div className={isPhoto(this.props.mode) ? 'photo' : 'camera'}>
+      <div data-testid='app' className={isPhoto(this.props.mode) ? 'photo' : 'camera'}>
         {isPhoto(this.props.mode) &&
         <header><p className="logo">BankClient</p></header>}
         <div className={'content'}>
